@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using BeatThat;
-using BeatThat.UI.UnityUI;
 
 namespace BeatThat
 {
@@ -18,13 +17,13 @@ namespace BeatThat
 			}
 
 			// TODO: if we wanted to make this plug and play, could make HasMaterial impls discoverable/addable with attributes
-			if(go.GetComponent<Renderer>() != null) {
-				return go.AddComponent<RendererMaterial>();
-			}
-
-			if(go.GetComponent<Graphic>() != null) {
-				return go.AddComponent<GraphicMaterial>();
-			}
+			// if(go.GetComponent<Renderer>() != null) {
+			// 	return go.AddComponent<RendererMaterial>();
+			// }
+			//
+			// if(go.GetComponent<Graphic>() != null) {
+			// 	return go.AddComponent<GraphicMaterial>();
+			// }
 
 			Debug.LogWarning("No Material provider (Renderer or Graphic) on GameObject " + go.Path());
 			return null;
