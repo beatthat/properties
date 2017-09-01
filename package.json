@@ -1,6 +1,6 @@
 {
   "name": "unity-properties",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "interfaces and simple components that provide a single 'value' property and may also provide methods to set that property with associated update events",
   "main": "index.js",
   "repository": {
