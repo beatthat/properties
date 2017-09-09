@@ -4,6 +4,13 @@ namespace BeatThat
 {
 	public static class InvocableExt
 	{
+		/// <summary>
+		/// ext method lets you call a sibling <c>Invocable</c> like this:
+		/// 
+		/// <c>
+		/// this.Invoke<MyInvocableComp>();
+		/// </c>
+		/// </summary>
 		public static void Invoke<T>(this Component c,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, Invocable
 		{
