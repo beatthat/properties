@@ -1,7 +1,7 @@
 {
   "name": "properties",
   "scope": "ape",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Components that implement interfaces from property-interfaces pkg and provide a single 'value' property and may also provide methods to set that property with associated update events",
   "main": "index.js",
   "repository": {
@@ -32,6 +32,6 @@
     "common-unityevent-types": "beatthat/common-unityevent-types#semver:^0.0.2",
     "pools": "beatthat/pools#semver:^0.0.7",
     "property-interfaces": "github:beatthat/property-interfaces#semver:^0.0.2",
-    "unity-extensions": "beatthat/unity-extensions#semver:^0.0.5"
+    "unity-extensions": "beatthat/unity-extensions#semver:^0.0.6"
   }
 }
