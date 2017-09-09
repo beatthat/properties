@@ -1,110 +1,19 @@
-﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace BeatThat
 {
-	public interface IHasTexture : IHasValue<Texture> {}
-
-	public interface IEditsTexture : IHasTexture, IHasValueChangedEvent {}
-
-	public interface IHasMaterial : IHasValue<Material> {}
-
-	public interface IHasText : IHasValue<string> {}
-
-	public interface IHasColor : IHasValue<Color> {}
-
-	public interface IHasColorBlock : IHasValue<ColorBlock> {}
-		
-	public interface IHasTextInput : IHasText
-	{
-		void ActivateInput();
-	}
-
-	public interface IHasValue<T>
-	{
-		T value { get; set; }
-	}
-
-	public interface IHasFloat : IHasValue<float> {}
-
-	public interface IHasInt : IHasValue<int> {}
-
-	public interface IHasLong : IHasValue<long> {}
-
-	public interface IHasBool : IHasValue<bool> {}
-
-	public interface IHasDateTime : IHasValue<DateTime> {}
-
-	public interface IHasClick 
-	{
-		bool interactable { get; set; }
-
-		UnityEvent onClicked { get; }
-		[Obsolete("use UnityEvent onValueChanged")]event Action Clicked; // TODO: replace with UnityEvent
-	}
-
-	public interface IHasValueObjChanged
-	{
-		UnityEvent onValueObjChanged { get; }
-	}
-
-	public interface IHasValueChangedEvent<T>
-	{
-		UnityEvent<T> onValueChanged { get; }
-	}
-
-	public interface IHasValueChangedEvent 
-	{
-		UnityEvent onValueChanged { get; }
-	}
-
-	public interface IHasBounds
-	{
-		Bounds bounds { get; }
-	}
-
-	public interface IHasRect 
-	{
-		Rect rect { get; }
-	}
-
-	public interface IHasUVRect 
-	{
-		Rect uvRect { get; set; }
-	}
-
-	public interface IEditsBool : IHasBool, IHasValueChangedEvent
-	{
-	}
-
-
-	public interface IDrive 
-	{
-		object GetDrivenObject();
-	}
-
-	/// <summary>
-	/// A way for a driver to make discoverable that it drives another component, 
-	/// e.g. CurvesFloat implements IDrive<IHasFloat>
-	/// </summary>
-	public interface IDrive<T> : IDrive where T : class
-	{
-		T driven { get; }
-	}
 
 	public enum MissingComponentOptions { AddAndWarn = 0, CancelAndWarn = 1, Add = 2, Cancel = 3,  ThrowException = 4 }
 
 	public static class PropertyExtensions
 	{
-		public static void SetBool<T>(this GameObject go, bool value, 
+		public static void SetBool<T>(this GameObject go, bool value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasBool
 		{
 			go.transform.SetBool<T>(value, opts);
 		}
 
-		public static void SetBool<T>(this Component c, bool value, 
+		public static void SetBool<T>(this Component c, bool value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasBool
 		{
 			var hasBool = c.GetComponent<T>();
@@ -131,7 +40,7 @@ namespace BeatThat
 			}
 		}
 
-		public static bool GetBool<T>(this GameObject go, 
+		public static bool GetBool<T>(this GameObject go,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn, bool dftVal = false) where T : Component, IHasBool
 		{
 			return go.transform.GetBool<T>(opts, dftVal);
@@ -160,13 +69,13 @@ namespace BeatThat
 			}
 		}
 
-		public static void SetFloat<T>(this GameObject go, float value, 
+		public static void SetFloat<T>(this GameObject go, float value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasFloat
 		{
 			go.transform.SetFloat<T>(value, opts);
 		}
 
-		public static void SetFloat<T>(this Component c, float value, 
+		public static void SetFloat<T>(this Component c, float value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasFloat
 		{
 			var hasFloat = c.GetComponent<T>();
@@ -221,13 +130,13 @@ namespace BeatThat
 			}
 		}
 
-		public static void SetInt<T>(this GameObject go, int value, 
+		public static void SetInt<T>(this GameObject go, int value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasInt
 		{
 			go.transform.SetInt<T>(value, opts);
 		}
 
-		public static void SetInt<T>(this Component c, int value, 
+		public static void SetInt<T>(this Component c, int value,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, IHasInt
 		{
 			var hasInt = c.GetComponent<T>();
@@ -283,7 +192,7 @@ namespace BeatThat
 		}
 
 		/// <summary>
-		/// For the case that there 0, 1, or multiple drivers for some component T, 
+		/// For the case that there 0, 1, or multiple drivers for some component T,
 		/// find the 'root' driver.
 		/// In the case of multiple drivers, any driver that is in turn driven by another driver is not the root.
 		/// </summary>
@@ -321,7 +230,7 @@ namespace BeatThat
 						if(d == null) {
 							continue;
 						}
-							
+
 						var driven = d.GetDrivenObject() as T;
 						if(driven != null) {
 							tmp.Remove(driven);

@@ -1,11 +1,12 @@
 {
-  "name": "unity-properties",
-  "version": "0.0.6",
-  "description": "interfaces and simple components that provide a single 'value' property and may also provide methods to set that property with associated update events",
+  "name": "properties",
+  "scope": "ape",
+  "version": "0.0.7",
+  "description": "Components that implement interfaces from property-interfaces pkg and provide a single 'value' property and may also provide methods to set that property with associated update events",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beatthat/unity-properties.git"
+    "url": "git+https://github.com/beatthat/properties.git"
   },
   "files": [
     "index.js",
@@ -15,19 +16,22 @@
   "author": "larrykirschner@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beatthat/unity-properties/issues"
+    "url": "https://github.com/beatthat/properties/issues"
   },
-  "homepage": "https://github.com/beatthat/unity-properties",
+  "homepage": "https://github.com/beatthat/properties",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "install:test": "rm -f *.tgz && npm pack && cd test && npm run clean && npm install"
+    "install:test": "rm -f *.tgz && npm pack && cd test && npm run clean && npm install",
+    "clean": "rm -f *.tgz && cd test && npm run clean",
+    "sync:test2src": "rsync -rv --include '*/' --include '*.cs' --exclude '*' --prune-empty-dirs test/Assets/Plugins/${npm_package_scope}/${npm_package_name}/ ./src/${npm_package_name}/"
   },
   "dependencies": {
     "ncp": "^2.0.0",
     "mkdirp": "^0.5.1",
-    "unity-extensions": "beatthat/unity-extensions#semver:^0.0.1",
-    "unity-common-event-types": "beatthat/unity-common-event-types#semver:^0.0.1",
-    "unity-utils": "beatthat/unity-utils#semver:^0.0.4",
-    "unity-pools": "beatthat/unity-pools#semver:^0.0.5"
+    "common-unityevent-types": "beatthat/common-unityevent-types#semver:^0.0.2",
+    "pools": "beatthat/pools#semver:^0.0.7",
+    "property-interfaces": "github:beatthat/property-interfaces#semver:^0.0.1",
+    "unity-extensions": "beatthat/unity-extensions#semver:^0.0.5",
+    "utils": "beatthat/utils#semver:^0.0.6"
   }
 }

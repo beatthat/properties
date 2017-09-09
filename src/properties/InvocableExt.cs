@@ -1,16 +1,10 @@
-﻿using UnityEngine;
-
+using UnityEngine;
 
 namespace BeatThat
 {
-	public interface Invocable
+	public static class InvocableExt
 	{
-		void Invoke();
-	}
-
-	public static class InvocableExtensions
-	{
-		public static void Invoke<T>(this Component c,  
+		public static void Invoke<T>(this Component c,
 			MissingComponentOptions opts = MissingComponentOptions.AddAndWarn) where T : Component, Invocable
 		{
 			if(c == null) {
