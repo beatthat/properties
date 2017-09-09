@@ -5,6 +5,14 @@ namespace BeatThat
 
 	public enum MissingComponentOptions { AddAndWarn = 0, CancelAndWarn = 1, Add = 2, Cancel = 3,  ThrowException = 4 }
 
+
+	/// <summary>
+	/// ext methods for Unity Component and GameObject that allow you to set a (sibling) property like this:
+	/// 
+	/// <c>
+	/// myComponent.SetBool<MyBoolProp>(true);
+	/// </c>
+	/// </summary>
 	public static class PropertyExtensions
 	{
 		public static void SetBool<T>(this GameObject go, bool value,

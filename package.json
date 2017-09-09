@@ -1,7 +1,7 @@
 {
   "name": "properties",
   "scope": "ape",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Components that implement interfaces from property-interfaces pkg and provide a single 'value' property and may also provide methods to set that property with associated update events",
   "main": "index.js",
   "repository": {
@@ -23,7 +23,8 @@
     "postinstall": "node scripts/postinstall.js",
     "install:test": "rm -f *.tgz && npm pack && cd test && npm run clean && npm install",
     "clean": "rm -f *.tgz && cd test && npm run clean",
-    "sync:test2src": "rsync -rv --include '*/' --include '*.cs' --exclude '*' --prune-empty-dirs test/Assets/Plugins/${npm_package_scope}/${npm_package_name}/ ./src/${npm_package_name}/"
+    "sync:test2src": "rsync -rv --include '*/' --include '*.cs' --exclude '*' --prune-empty-dirs test/Assets/Plugins/${npm_package_scope}/${npm_package_name}/ ./src/${npm_package_name}/",
+    "pub:tag": "git add -A && git commit -m ${npm_package_version} && git tag -a ${npm_package_version} -m ${npm_package_version} && git push origin master && git push origin ${npm_package_version}"
   },
   "dependencies": {
     "ncp": "^2.0.0",
@@ -32,6 +33,6 @@
     "pools": "beatthat/pools#semver:^0.0.7",
     "property-interfaces": "github:beatthat/property-interfaces#semver:^0.0.1",
     "unity-extensions": "beatthat/unity-extensions#semver:^0.0.5",
-    "utils": "beatthat/utils#semver:^0.0.6"
+    "utils": "beatthat/utils#semver:^0.0.7"
   }
 }
