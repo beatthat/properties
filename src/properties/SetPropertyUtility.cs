@@ -3,6 +3,8 @@
 namespace BeatThat
 {
 	/// <summary>
+	/// Utils for setting props that return a bool to indicate if the prop has changed value.
+	/// 
 	/// Copy of internal utility used by UnityEngine
 	/// </summary>
 	static class SetPropertyUtility
