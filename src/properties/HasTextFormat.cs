@@ -35,6 +35,8 @@ namespace BeatThat
 		public IHasText driven { get { return m_driven?? (m_driven = this.GetSiblingComponent<HasText>()); } } 
 
 		public object GetDrivenObject() { return this.driven; }
+
+		public bool ClearDriven() { m_driven = null; return true; }
 		#endregion
 
 		#region implemented abstract members of HasText

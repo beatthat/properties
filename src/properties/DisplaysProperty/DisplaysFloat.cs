@@ -33,7 +33,7 @@ namespace BeatThat
 		virtual protected bool applyChangesOnLateUpdate { get { return m_applyChangesOnLateUpdate; } set { m_applyChangesOnLateUpdate = value; } }
 		// Analysis restore ConvertToAutoProperty
 
-		void OnEnable()
+		virtual protected void OnEnable()
 		{
 			if(m_updateDisplayOnEnable) {
 				UpdateDisplay();
@@ -51,7 +51,7 @@ namespace BeatThat
 
 		abstract public void UpdateDisplay();
 
-		void OnDidApplyAnimationProperties()
+		virtual protected void OnDidApplyAnimationProperties()
 		{
 			if(!this.gameObject.activeInHierarchy) {
 				return;
@@ -61,7 +61,7 @@ namespace BeatThat
 
 		protected bool displayUpdatePending { get; set; }
 
-		void LateUpdate()
+		virtual protected void LateUpdate()
 		{
 			if(this.displayUpdatePending) {
 				UpdateDisplay();
