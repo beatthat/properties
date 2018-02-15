@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "path": "^0.12.7",
-        "unity-npm-utils": "github:beatthat/unity-npm-utils#semver:^0.0.9",
+        "unity-npm-utils": "github:beatthat/unity-npm-utils",
         "bindings": "beatthat/bindings#semver:^0.0.7",
         "common-unityevent-types": "beatthat/common-unityevent-types#semver:^0.0.2",
         "pools": "beatthat/pools#semver:^0.0.8",
