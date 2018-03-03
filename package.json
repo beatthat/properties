@@ -1,39 +1,42 @@
 {
-    "name": "properties",
-    "scope": "ape",
-    "version": "0.0.18",
-    "description": "Components that implement interfaces from property-interfaces pkg and provide a single 'value' property and may also provide methods to set that property with associated update events",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/beatthat/properties.git"
-    },
-    "files": [
-        "index.js",
-        "scripts",
-        "src"
-    ],
-    "author": "larrykirschner@gmail.com",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/beatthat/properties/issues"
-    },
-    "homepage": "https://github.com/beatthat/properties",
-    "scripts": {
-        "postinstall": "node scripts/postinstall.js",
-        "install:test": "rm -f *.tgz && npm pack && cd test && npm run clean && npm install",
-        "clean": "rm -f *.tgz && cd test && npm run clean",
-        "cp:test2src": "cd test && node scripts/cp-test2src.js",
-        "overwrite:test2src": "cd test && node scripts/overwrite-test2src.js",
-        "version": "git add -A",
-        "postversion": "git push && git push --tags && npm run clean"
-    },
-    "dependencies": {
-        "bindings": "beatthat/bindings#semver:^0.0.7",
-        "common-unityevent-types": "beatthat/common-unityevent-types#semver:^0.0.2",
-        "path": "^0.12.7",
-        "pools": "beatthat/pools#semver:^0.0.8",
-        "property-interfaces": "github:beatthat/property-interfaces#semver:^0.0.6",
-        "unity-npm-utils": "github:beatthat/unity-npm-utils"
-    }
+  "name": "properties",
+  "scope": "ape",
+  "version": "0.0.18",
+  "description": "Components that implement interfaces from property-interfaces pkg and provide a single 'value' property and may also provide methods to set that property with associated update events",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beatthat/properties.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "src"
+  ],
+  "author": "larrykirschner@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beatthat/properties/issues"
+  },
+  "homepage": "https://github.com/beatthat/properties",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "install:test": "npm pack && cp ${npm_package_name}-${npm_package_version}.tgz ${npm_package_name}-latest.tgz && cd test && npm run clean && npm install",
+    "clean": "rm -f *.tgz package-lock.json && cd test && npm run clean",
+    "cp:test2src": "cd test && node scripts/cp-test2src.js",
+    "overwrite:test2src": "cd test && node scripts/overwrite-test2src.js",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags && npm run clean",
+    "preinstall:test": "rm -f *.tgz",
+    "template:update": "node scripts/template-update.js"
+  },
+  "dependencies": {
+    "bindings": "beatthat/bindings#semver:^1.0.0",
+    "common-unityevent-types": "beatthat/common-unityevent-types#semver:^1.0.0",
+    "path": "^0.12.7",
+    "pools": "beatthat/pools#semver:^1.0.0",
+    "property-interfaces": "github:beatthat/property-interfaces#semver:^1.0.0",
+    "unity-npm-utils": "github:beatthat/unity-npm-utils#semver:^1.0.0"
+  },
+  "devDependencies": {}
 }

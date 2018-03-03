@@ -36,7 +36,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*.tgz
-package-lock.json
-
 node_modules
+package-lock.json
+unpm-local.json
