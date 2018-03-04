@@ -1,11 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System;
+using BeatThat.OptionalComponents;
 
 namespace BeatThat
 {
 	public abstract class HasValue : MonoBehaviour, IHasValueObjChanged
 	{
+		[Tooltip("set TRUE to disable the behaviour that checks/ensures sibling components defined by the [OptionalComponent] attribute.")]
+		public bool m_disableEnsureOptionalComponentsOnStart;
+
+		virtual protected void Start()
+		{
+			HandleOptionalComponents ();
+		}
+
+		virtual protected void HandleOptionalComponents()
+		{
+			if (!m_disableEnsureOptionalComponentsOnStart) {
+				this.EnsureAllOptionalComponents ();
+			}
+		}
+
 		/// <summary>
 		/// TRUE if the impl class actually sends the onValueObjChanged event.
 		/// </summary>

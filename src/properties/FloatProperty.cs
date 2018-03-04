@@ -45,7 +45,7 @@ namespace BeatThat
 			}
 		}
 
-		protected void SetValue(float val, PropertyEventOptions opts = PropertyEventOptions.SendOnChange)
+		public void SetValue(float val, PropertyEventOptions opts = PropertyEventOptions.SendOnChange)
 		{
 			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
 			if(m_debug) {

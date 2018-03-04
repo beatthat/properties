@@ -33,6 +33,7 @@
   "dependencies": {
     "bindings": "beatthat/bindings#semver:^1.0.0",
     "common-unityevent-types": "beatthat/common-unityevent-types#semver:^1.0.0",
+    "optional-components": "beatthat/optional-components#semver:^1.0.0",
     "path": "^0.12.7",
     "pools": "beatthat/pools#semver:^1.0.0",
     "property-interfaces": "github:beatthat/property-interfaces#semver:^1.0.0",

@@ -13,8 +13,9 @@ namespace BeatThat
 
 		public DriverType driver { get { return m_driver; } }
 
-		void Start()
+		override protected void Start()
 		{
+			base.Start ();
 			this.didStart = true;
 			Bind();
 		}

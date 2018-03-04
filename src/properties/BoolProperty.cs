@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BeatThat
 {
+	
 	public class BoolProperty : BoolProp
 	{
 		public bool m_value; // TODO: this shouldn't be public but good to see in Inspector. Move to editor class.
@@ -45,7 +46,7 @@ namespace BeatThat
 			}
 		}
 
-		protected void SetValue(bool val, PropertyEventOptions opts = PropertyEventOptions.SendOnChange)
+		public void SetValue(bool val, PropertyEventOptions opts = PropertyEventOptions.SendOnChange)
 		{
 			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
 			if(m_debug) {
